@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby.JS`,
-    description: `Gatsby Markdown Personal Website Starter, using Typescript, Styled Components, Tailwindcss and Framer Motion.`,
-    author: `Saimir Kapaj`
+    title: `blackmad dot com`,
+    description: `Personal website of David Blackman aka blackmad aka whizziwig.`,
+    author: `David Blackman`
   },
   plugins: [
     `gatsby-plugin-typescript`,

@@ -38,7 +38,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             transition={{ delay: 0.2 }}
           >
             {children}
-            <Newsletter />
+            {/* <Newsletter /> */}
             <Footer />
           </motion.div>
         </Styled.Layout>

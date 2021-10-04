@@ -3,7 +3,7 @@ import tw from 'tailwind.macro';
 
 export default createGlobalStyle`
   body {
-    ${tw`m-0 text-indigo-900 bg-white`};
+    ${tw`m-0 text-indigo-900 bg-white font-mono`};
   }
 
   a {

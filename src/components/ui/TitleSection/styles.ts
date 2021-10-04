@@ -6,7 +6,7 @@ export interface StyledProps {
 }
 
 export const TitleSection = styled.div`
-  ${tw`flex flex-col w-full`};
+  ${tw`flex flex-col w-full pb-8`};
 `;
 
 export const Title = styled.h2<StyledProps>`
@@ -19,17 +19,17 @@ export const SubTitle = styled.h4<StyledProps>`
   ${({ center }) => center && tw`text-center`};
 `;
 
-export const Separator = styled.h2<StyledProps>`
-  ${tw`relative w-2 h-8 mb-6 -mt-2`};
-  ${({ center }) => center && tw`mx-auto`};
+// export const Separator = styled.h2<StyledProps>`
+//   ${tw`relative w-2 h-8 mb-6 -mt-2`};
+//   ${({ center }) => center && tw`mx-auto`};
 
-  &:before {
-    content: '';
-    ${tw`bg-indigo-500 h-full w-px absolute left-0`};
-  }
+//   &:before {
+//     content: '';
+//     ${tw`bg-indigo-500 h-full w-px absolute left-0`};
+//   }
 
-  &:after {
-    content: '';
-    ${tw`bg-teal-400 h-6 w-px absolute ml-1`};
-  }
-`;
+//   &:after {
+//     content: '';
+//     ${tw`bg-teal-400 h-6 w-px absolute ml-1`};
+//   }
+// `;

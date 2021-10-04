@@ -1,4 +1,6 @@
 import React from 'react';
+import Separator from './Separator';
+import tw from 'tailwind.macro';
 
 import * as Styled from './styles';
 import { StyledProps } from './styles';
@@ -12,7 +14,14 @@ const TitleSection: React.FC<Props> = ({ center, title, subtitle }) => (
   <Styled.TitleSection>
     {subtitle && <Styled.SubTitle center={center}>{title}</Styled.SubTitle>}
     <Styled.Title center={center}>{subtitle}</Styled.Title>
-    <Styled.Separator center={center} />
+    {/* <Separator center={center} /> */}
+    {center ? (
+      <div className={tw`text-center`}>
+        <Separator />
+      </div>
+    ) : (
+      <Separator />
+    )}
   </Styled.TitleSection>
 );
 
