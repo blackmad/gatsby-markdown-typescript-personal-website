@@ -10,7 +10,7 @@ import * as Styled from './styles';
 interface Props {
   title: string;
   subtitle?: string;
-  content: React.ReactNode;
+  content: string;
   linkTo: string;
   linkText: string;
 }
@@ -19,7 +19,7 @@ const Banner: React.FC<Props> = ({ title, subtitle, content, linkTo, linkText })
   <Styled.Banner>
     <Container section>
       <TitleSection title={title} subtitle={subtitle} />
-      <Styled.Content>{content}</Styled.Content>
+      <Styled.Content dangerouslySetInnerHTML={{ __html: content }} />
       {/* <Link to={linkTo}>
         <Button primary>{linkText}</Button>
       </Link> */}

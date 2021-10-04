@@ -13,4 +13,8 @@ export default createGlobalStyle`
   p + p {
     ${tw`mt-3`};
   }
+
+  li {
+    ${tw`list-disc pb-4 ml-8`}
+  }
 `;

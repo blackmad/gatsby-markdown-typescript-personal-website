@@ -22,6 +22,7 @@ const HeroBanner: React.FC = () => {
           linkTo
           linkText
         }
+        html
       }
     }
   `);
@@ -32,7 +33,7 @@ const HeroBanner: React.FC = () => {
     <Banner
       title={heroBanner.title}
       subtitle={heroBanner.subtitle}
-      content={heroBanner.content}
+      content={markdownRemark.html}
       linkTo={heroBanner.linkTo}
       linkText={heroBanner.linkText}
     />
