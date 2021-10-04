@@ -21,6 +21,7 @@ My creative pursuits include
 - [streetplantsnyc](https://instagram.com/streetplantsnyc) - a photographic love letter to the weeds and fences of nyc
 - [blackmadeco](https://www.instagram.com/blackmadeco/) - my leatheworking hobby combined with my love of generative art resulting in a tool for generating [laser cut accessory patterns](http://gen1-alpha.blackmade.co/#/)
 - [mail-a-tweet](http://mailatweet.club/) - send a tweet (or insta post) as a physical postcard for only _one dollar!_
+- [Internet Unconscious Mandala](https://collage.blackmad.com/mandala1.html) - stare and enjoy.
 
 <p>&nbsp;</p>
 
