@@ -9,7 +9,9 @@ linkText: 'View My Profile'
 
 Hi, I’m David Blackman.
 
-I worked in consumer tech for nearly two decades, currently at [Notion](https://notion.so) in NYC.
+<p>&nbsp;</p>
+
+I have worked in consumer tech in NYC for nearly two decades, currently at [Notion](https://notion.so) (we're hiring).
 
 <p>&nbsp;</p>
 
