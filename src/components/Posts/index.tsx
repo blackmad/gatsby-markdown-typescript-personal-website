@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import Link from 'gatsby-link';
 import { motion } from 'framer-motion';
 
@@ -32,43 +32,40 @@ interface Post {
 }
 
 const Posts: React.FC = () => {
-  const { markdownRemark, allMarkdownRemark } = useStaticQuery(graphql`
-    query {
-      markdownRemark(frontmatter: { category: { eq: "blog section" } }) {
+  const { markdownRemark, allMarkdownRemark } = useStaticQuery(graphql`{
+  markdownRemark(frontmatter: {category: {eq: "blog section"}}) {
+    frontmatter {
+      title
+      subtitle
+    }
+  }
+  allMarkdownRemark(
+    filter: {frontmatter: {category: {eq: "blog"}, published: {eq: true}}}
+    sort: {fields: frontmatter___date, order: DESC}
+  ) {
+    edges {
+      node {
+        id
+        html
+        fields {
+          slug
+        }
         frontmatter {
           title
-          subtitle
-        }
-      }
-      allMarkdownRemark(
-        filter: { frontmatter: { category: { eq: "blog" }, published: { eq: true } } }
-        sort: { fields: frontmatter___date, order: DESC }
-      ) {
-        edges {
-          node {
-            id
-            html
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-              description
-              date(formatString: "MMM DD, YYYY")
-              tags
-              cover {
-                childImageSharp {
-                  fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
+          description
+          date(formatString: "MMM DD, YYYY")
+          tags
+          cover {
+            childImageSharp {
+              gatsbyImageData(width: 800, layout: CONSTRAINED)
             }
           }
         }
       }
     }
-  `);
+  }
+}
+`);
 
   const sectionTitle: SectionTitle = markdownRemark.frontmatter;
   const posts: Post[] = allMarkdownRemark.edges;
@@ -90,7 +87,7 @@ const Posts: React.FC = () => {
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 1 }}>
                   <Styled.Card>
                     <Styled.Image>
-                      <Img fluid={cover.childImageSharp.fluid} alt={title} />
+                      <GatsbyImage image={cover.childImageSharp.gatsbyImageData} alt={title} />
                     </Styled.Image>
                     <Styled.Content>
                       <Styled.Date>{date}</Styled.Date>

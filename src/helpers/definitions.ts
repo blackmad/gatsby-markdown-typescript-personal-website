@@ -1,6 +1,6 @@
-import { FluidObject } from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 
-export type ImageSharpFluid = FluidObject | FluidObject[] | undefined;
+export type ImageSharpFluid = GatsbyImage | GatsbyImage[] | undefined;
 
 export type ObjectType = Record<string, any>;
 

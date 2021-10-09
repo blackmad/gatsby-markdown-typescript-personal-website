@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import Loadable from '@loadable/component';
 
 import Container from 'components/ui/Container';
@@ -29,34 +29,31 @@ interface Testimonial {
 }
 
 const Testimonials: React.FC = () => {
-  const { markdownRemark, allMarkdownRemark } = useStaticQuery(graphql`
-    query {
-      markdownRemark(frontmatter: { category: { eq: "testimonials section" } }) {
+  const { markdownRemark, allMarkdownRemark } = useStaticQuery(graphql`{
+  markdownRemark(frontmatter: {category: {eq: "testimonials section"}}) {
+    frontmatter {
+      title
+      subtitle
+    }
+  }
+  allMarkdownRemark(filter: {frontmatter: {category: {eq: "testimonials"}}}) {
+    edges {
+      node {
+        id
+        html
         frontmatter {
           title
-          subtitle
-        }
-      }
-      allMarkdownRemark(filter: { frontmatter: { category: { eq: "testimonials" } } }) {
-        edges {
-          node {
-            id
-            html
-            frontmatter {
-              title
-              cover {
-                childImageSharp {
-                  fluid(maxWidth: 80) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
+          cover {
+            childImageSharp {
+              gatsbyImageData(width: 80, layout: CONSTRAINED)
             }
           }
         }
       }
     }
-  `);
+  }
+}
+`);
 
   const sectionTitle: SectionTitle = markdownRemark.frontmatter;
   const testimonials: Testimonial[] = allMarkdownRemark.edges;
@@ -76,7 +73,7 @@ const Testimonials: React.FC = () => {
             return (
               <Styled.Testimonial key={id}>
                 <Styled.Image>
-                  <Img fluid={cover.childImageSharp.fluid} alt={title} />
+                  <GatsbyImage image={cover.childImageSharp.gatsbyImageData} alt={title} />
                 </Styled.Image>
                 <Styled.Title>{title}</Styled.Title>
                 <FormatHtml content={html} />
